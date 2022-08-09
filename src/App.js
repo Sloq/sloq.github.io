@@ -12,7 +12,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <span>
+        {/* <span>
           <span>Learn </span>
           <a
             className="App-link"
@@ -49,7 +49,7 @@ function App() {
           >
             React Redux
           </a>
-        </span>
+        </span> */}
       </header>
     </div>
   );
