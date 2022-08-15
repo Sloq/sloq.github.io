@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./layout";
 import Home from "./pages/home";
 import Resume from "./pages/resume";
+import Hanoi from "./pages/hanoi";
 import AltPage from "./pages/altPage";
 
 const container = document.getElementById('root');
@@ -21,6 +22,7 @@ root.render(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="resume" element={<Resume />} />
+      <Route path="hanoi" element={<Hanoi />} />
       <Route path="altpage" element={
       <Provider store={store}>
           <App />
