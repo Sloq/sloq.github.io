@@ -1,6 +1,10 @@
 
 .nav {
     width: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: #fafafa;
+    border-bottom: solid rgb(160, 167, 176) 1px;
 }
 
 .navbar {
@@ -10,6 +14,25 @@
     justify-content: flex-end;
     gap: 40px;
     align-items: center;
+    padding-right: 25px;
+}
+
+
+.navbar li {
+    height: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    align-items: center;
+    display: flex;
+}
+
+.hoverActive {
+    opacity: 100%;
+}
+
+.hoverInactive {
+    opacity: 0.60;
 }
 
 .linkedIn {
@@ -27,9 +50,16 @@
     width: 113px;
     background: #000;
     position: absolute;
-    top: 24px;
+    top: 35px;
     left: 0;
     width: 101px;
     height: 2px;
     transition: all .6s ease;
+}
+
+.underlineSpan {
+    position: absolute;
+    border-bottom: 4px solid transparent;
+    z-index: -1;
+    transition: all .35s ease-in-out;
 }
