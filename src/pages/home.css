@@ -1,3 +1,7 @@
+.topPadded {
+    padding-top: 40px;
+}
+
 .lozenge, .lozenge * {
     box-sizing: border-box;
     position: absolute;
@@ -183,24 +187,13 @@
     border: 0.3vw solid black;
 }
 .eyes .eye .brow {
-    border-color: #875e33;
-    border-style: solid;
-    top: -5vw;
-    border-left-width: 11vw;
-    border-bottom-width: 3vw;
-    border-top-width: 0;
-    /* border-right-width: 0; */
+    top: -6vw;
+    width: 11vw;
+    height: 4vw;
+    background-color: #875e33;
     transform: rotate(-8deg);
-}
-.eyes .eye .brow::before {
-    width: 14vw;
-    height: 2vw;
-    border-radius: 50%;
-    background-color: #eecbb4;
-    content: " ";
-    position: absolute;
-    top: 2vw;
-    left: -14vw;
+    border: 1px solid black;
+    border-top-left-radius: 80%;
 }
 .eyes .eye .pupil {
     left: 60%;
@@ -216,15 +209,11 @@
     right: 2.5%;
 }
 .eyes .eye.eye-right .brow {
-    border-right-width: 11vw;
-    border-left-width: 0;
-    border-left-color: #4a2b0a;
     transform: rotate(8deg);
     left: auto;
     right: 0;
-}
-.eyes .eye.eye-right .brow::before {
-    left: 0;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 80%;
 }
 .eyes .eye.eye-right .pupil {
     left: 40%;

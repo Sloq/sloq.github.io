@@ -25,11 +25,11 @@ root.render(
       <Route path="hanoi" element={<Hanoi />} />
       <Route path="altpage" element={
       <Provider store={store}>
-          <App />
-          </Provider>
+        <App />
+      </Provider>
           }/>
-          <Route path="*" element={<Home />} />
-          </Route>
+      <Route path="*" element={<Home />} />
+    </Route>
   </Routes>
   </BrowserRouter>
 );
