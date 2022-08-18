@@ -33,7 +33,7 @@ class Home extends React.Component {
 
     setCoordinates(e, rHead) {
         const xVal = e.pageX - e.target.offsetLeft;
-        const yVal = e.pageY - e.target.offsetTop;
+        let yVal = e.pageY - e.target.offsetTop;
         const headRec = rHead.current.getBoundingClientRect();
 
         const leftEdge = headRec.left;
@@ -43,12 +43,24 @@ class Home extends React.Component {
         const centerWidthTrue = headRec.left + 0.5 * (headRec.width);
         const centerHeight = headRec.top + 0.5 * headRec.height;
         const yBottom = headRec.top + headRec.height;
+        const yTop = headRec.top;
         
         let lMoveX = this.calculateLeftPupil(xVal, centerWidthLeft, centerWidthTrue, leftEdge);
         let rMoveX = this.calculateRightPupil(xVal, centerWidthTrue, centerWidthRight, rightEdge);
-        let yMove = this.calculatePupilHeight(yVal, centerHeight, yBottom, headRec.top);
+        let yMove = this.calculatePupilHeight(yVal, centerHeight, yBottom, yTop);
         let lBrowRotate = '';
         let rBrowRotate = '';
+
+        if (yVal < yTop) {
+            yVal = yTop;
+        } else if (yVal> yBottom) {
+            yVal = yBottom
+        }
+        let bMoveIntLeft = -20 + 30 * ((yVal - yTop)/(yBottom-yTop))
+        bMoveIntLeft = Math.floor(bMoveIntLeft);
+        let bMoveIntRight = -1 * bMoveIntLeft;
+        let bMoveLeft = {transform: `rotate(${bMoveIntLeft}deg)`}
+        let bMoveRight = {transform: `rotate(${bMoveIntRight}deg)`}
 
         const lMove = {
             left : lMoveX,
@@ -60,7 +72,7 @@ class Home extends React.Component {
             top: yMove,
         };
 
-        this.setState({rEyeMove: rMove, lEyeMove: lMove});
+        this.setState({rEyeMove: rMove, lEyeMove: lMove, lBrowMove: bMoveLeft, rBrowMove: bMoveRight});
     }
 
     calculateLeftPupil(xVal, centerWidthLeft, centerWidthTrue, leftEdge) {
@@ -127,6 +139,10 @@ class Home extends React.Component {
 
         return yMove;
     }
+
+    calculateBrow() {
+
+    }
     
     
     render() {
@@ -160,7 +176,7 @@ class Home extends React.Component {
                                         style={this.state.lEyeMove}
                                     >
                                     </div>
-                                    <div className={`${this.state.lBrowMove} brow`}></div>
+                                    <div className={`${this.state.lBrowMove} brow`} style={this.state.lBrowMove}></div>
                                 </div>
                                 <div className={`${this.state.rEyeMove} eye eye-right`}>
                                     <div
@@ -169,7 +185,7 @@ class Home extends React.Component {
                                         style={this.state.rEyeMove}
                                     >    
                                     </div>
-                                    <div className={`${this.state.rBrowMove} brow`}></div>
+                                    <div className={`${this.state.rBrowMove} brow`} style={this.state.rBrowMove}></div>
                                 </div>
                             </div>
                             <div className="sideburns"></div>
