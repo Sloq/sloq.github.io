@@ -218,6 +218,11 @@
 .eyes .eye.eye-right .pupil {
     left: 40%;
 }
+/* left eye:
+top 75 / 25
+left 35
+
+right eye (left 65) */
 .nose {
     left: 50%;
     top: 40%;
