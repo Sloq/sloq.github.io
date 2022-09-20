@@ -74,47 +74,48 @@ class Home extends React.Component {
             //need to check size for clasname of body to assign padding for navbar
             <div className="home topPadded" onMouseMove={(e) => {this.setCoordinates(e, this.headRef)}}>
                 <h1>This is the Homepage</h1>
-
-                <div className="lozenge">
-                    <div className="head"
-                        ref={this.headRef}
-                    >
-                        <div className="hair"></div>
-                        <div className="ears">
-                            <div className="ear ear-left"></div>
-                            <div className="ear ear-right"></div>
-                        </div>
-                        <div className="face">
-                            <div className="beard">
-                                <div className="mole"></div>
-                                <div className="mouth">
-                                    <div className="tongue"></div>
-                                    <div className="teeth"></div>
-                                </div>
+                <div className='face-container'>
+                    <div className="lozenge">
+                        <div className="head"
+                            ref={this.headRef}
+                        >
+                            <div className="hair"></div>
+                            <div className="ears">
+                                <div className="ear ear-left"></div>
+                                <div className="ear ear-right"></div>
                             </div>
-                            <div className="eyes">
-                                <div className={`${this.state.lEyeMove} eye eye-left`}>
-                                    <div
-                                        className="pupil"
-                                        ref={this.leftEyeRef}
-                                        style={this.state.lEyeMove}
-                                    >
+                            <div className="face">
+                                <div className="beard">
+                                    <div className="mole"></div>
+                                    <div className="mouth">
+                                        <div className="tongue"></div>
+                                        <div className="teeth"></div>
                                     </div>
-                                    <div className={`${this.state.lBrowMove} brow`} style={this.state.lBrowMove}></div>
                                 </div>
-                                <div className={`${this.state.rEyeMove} eye eye-right`}>
-                                    <div
-                                        className="pupil"
-                                        ref={this.rightEyeRef}
-                                        style={this.state.rEyeMove}
-                                    >    
+                                <div className="eyes">
+                                    <div className={`${this.state.lEyeMove} eye eye-left`}>
+                                        <div
+                                            className="pupil"
+                                            ref={this.leftEyeRef}
+                                            style={this.state.lEyeMove}
+                                        >
+                                        </div>
+                                        <div className={`${this.state.lBrowMove} brow`} style={this.state.lBrowMove}></div>
                                     </div>
-                                    <div className={`${this.state.rBrowMove} brow`} style={this.state.rBrowMove}></div>
+                                    <div className={`${this.state.rEyeMove} eye eye-right`}>
+                                        <div
+                                            className="pupil"
+                                            ref={this.rightEyeRef}
+                                            style={this.state.rEyeMove}
+                                        >    
+                                        </div>
+                                        <div className={`${this.state.rBrowMove} brow`} style={this.state.rBrowMove}></div>
+                                    </div>
                                 </div>
+                                <div className="sideburns"></div>
+                                <div className="nose"></div>
+                                <div className="quiff"></div>
                             </div>
-                            <div className="sideburns"></div>
-                            <div className="nose"></div>
-                            <div className="quiff"></div>
                         </div>
                     </div>
                 </div>
