@@ -1,6 +1,7 @@
 import React from 'react';
 import "./home.css";
-import { calculateBrow, calculateLeftPupil, calculateRightPupil, calculatePupilHeight } from "./faceFunctions";
+import { calculateBrow, calculateLeftPupil, calculateRightPupil, calculatePupilHeight } from "./homeComponents/faceFunctions";
+// import AboutMe from './homeComponents/aboutMe';
 
 
 // hair bounce/swish in transform add rotate -5/5 deg alternate
@@ -25,11 +26,19 @@ class Home extends React.Component {
         rBrowMove: {
             transform: 'rotate(8deg)',
         },
+        width: 0,
       }
       this.leftEyeRef = React.createRef();
       this.rightEyeRef = React.createRef();
       this.headRef = React.createRef();
       this.setCoordinates = this.setCoordinates.bind(this);
+      this.faceToon = this.faceToon.bind(this);
+      this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    }
+
+    componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
     }
 
     setCoordinates(e, rHead) {
@@ -67,15 +76,11 @@ class Home extends React.Component {
         this.setState({rEyeMove: rMove, lEyeMove: lMove, lBrowMove: bMoveLeft, rBrowMove: bMoveRight});
     }
 
-    
-    
-    render() {
+    // extracted to simplify legibility of render while still have
+    // data access for pupil/brow movement
+    faceToon(maxToon) {
         return (
-            //need to check size for clasname of body to assign padding for navbar
-            <div className="home topPadded" onMouseMove={(e) => {this.setCoordinates(e, this.headRef)}}>
-                <h1>This is the Homepage</h1>
-                <div className='face-container'>
-                    <div className="lozenge">
+            <div className="face-image lozenge">
                         <div className="head"
                             ref={this.headRef}
                         >
@@ -85,7 +90,7 @@ class Home extends React.Component {
                                 <div className="ear ear-right"></div>
                             </div>
                             <div className="face">
-                                <div className="beard">
+                                <div className={`${maxToon} beard`}>
                                     <div className="mole"></div>
                                     <div className="mouth">
                                         <div className="tongue"></div>
@@ -112,12 +117,43 @@ class Home extends React.Component {
                                         <div className={`${this.state.rBrowMove} brow`} style={this.state.rBrowMove}></div>
                                     </div>
                                 </div>
-                                <div className="sideburns"></div>
-                                <div className="nose"></div>
-                                <div className="quiff"></div>
+                                <div className={`${maxToon} sideburns`}></div>
+                                <div className={`${maxToon} nose`}></div>
+                                <div className={`${maxToon} quiff`}></div>
                             </div>
                         </div>
                     </div>
+        );
+    }
+
+    updateWindowDimensions() {
+        this.setState({ width: window.innerWidth });
+    }      
+    
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+    
+    render() {
+        const maxToon = this.state.width > 1200 ? 'max-toon' : '';
+
+        return (
+            //need to check size for clasname of body to assign padding for navbar
+            <div className="home" onMouseMove={(e) => {this.setCoordinates(e, this.headRef)}}>
+                <div className='face-container'>
+                    {/* <AboutMe/> */}
+                    <h1 className='intoH'>Hi, I'm Stephen Loquet</h1>
+                    <h2 className='subHeader'>Software Developer</h2>
+                    <div className='face-image'></div>
+                    {this.faceToon(maxToon)}
+                    <p> As a web developer, I consistently strive to create clean, concise, reusable code.
+                        Professional experience building front end web apps with ReactJS/Redux and working on
+                        Backend api's utilizing Golang. Working in Software Engineer has always been rewarding
+                        for me, and I'm excited to help your company to tackle its latest challenges. 
+                    </p>
+                </div>
+                <div id='projects' className='projects-container'>
+                    Projects
                 </div>
             </div>
         );

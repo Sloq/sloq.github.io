@@ -1,35 +1,56 @@
 
 
 .home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-top: 67px;
+    display: grid;
+}
+
+.home > * {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.about-me {
+    /* margin-top: 10em; */
+}
+
+/* .face-offset:before {
+    content: '' ;
+    display:block;
+    float: right;
+    height: 200px;
+} */
+
+.intoH {
+    color: #323232;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+}
+
+.subHeader {
+    margin-top: 0.2em;
+    margin-bottom: 0.5em;
+    color: #474849;
+}
+
+.projects-container {
+
 }
 
 .face-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-}
-
-.topPadded {
-    padding-top: 40px;
-}
-
-.lozenge, .lozenge * {
-    box-sizing: border-box;
-    position: absolute;
-    z-index: -1;
+    min-width: 150px;
+    min-height: 150px;
+    /* margin-left: 55%; */
 }
 
 @keyframes swing{
     0%{
-        /* transform-origin: -50% -50%; */
         transform: rotate(-3deg);
     }
     50%{
-        /* transform-origin: -50% -50%; */
         transform: rotate(3deg);
     }
     100%{
@@ -37,15 +58,41 @@
     }
 }
 
+.lozenge, .lozenge * {
+    box-sizing: border-box;
+    position: absolute;
+    /* z-index: -1; */
+}
+
+.lozenge {
+    /* float:right;   
+    clear:both; 
+    width: 50% ;  */
+    margin-left: 55.5vw;
+    margin-top: -13vw; 
+    /* box-sizing: border-box;
+    position: absolute; */
+    z-index: -1;
+}
+
+/* add max toon to lozenge */
+
+.face-image:before {
+    content: '' ;
+    display:block;
+    float: right;
+    height: 40vw;
+    width: 40vw;
+}
+
 .lozenge {
     width: 40vw;
     height: 40vw;
+    max-width: 500px;
+    max-height: 500px;
     border-style: solid;
     border-color: #fff;
     border-width: 2vw;
-    /* left: 50%;
-    top: 50%; */
-    /* transform: translate(-50%, -50%); */
     border-radius: 50%;
     overflow: hidden;
     background-color: #88c7e4;
@@ -67,11 +114,15 @@
 .head {
     width: 36vw;
     height: 36vw;
+    max-width: 450px;
+    max-height: 450px;
 }
 
 .hair {
     width: 21.5vw;
     height: 25vw;
+    max-width: 268.8px;
+    max-height: 312.5px;
     background-color: #4a2b0a;
     left: 50%;
     top: 58%;
@@ -88,14 +139,18 @@
     top: 57%;
     transform: translate(-50%, -50%);
     height: 8vw;
+    max-height: 100px;
     width: 25vw;
+    max-width: 312.5px;
 }
 
 .ears .ear {
     background-color: #eecbb4;
     border-radius: 50%;
     width: 5vw;
+    max-width: 62.5px;
     height: 7.5vw;
+    max-height: 93.8px;
     transform: rotate(-15deg);
     border: 2px solid black;
 }
@@ -103,7 +158,9 @@
 .ears .ear::before, .ears .ear::after {
     content: " ";
     width: 4vw;
+    max-width: 50px;
     height: 6vw;
+    max-height: 75px;
     background-color: #dfa59b;
     left: 50%;
     top: 50%;
@@ -114,7 +171,9 @@
 
 .ears .ear::after {
     width: 2vw;
+    max-width: 25px;
     height: 3.5vw;
+    max-height: 43.8px;
     background-color: #eecbb4;
     left: 35%;
     top: 35%;
@@ -133,7 +192,9 @@
 
 .face {
     width: 19.5vw;
+    max-width: 243.8px;
     height: 27.5vw;
+    max-height: 343.8px;
     background-color: #eecbb4;
     left: 50%;
     top: 50%;
@@ -146,7 +207,9 @@
     top: 39%;
     transform: translate(-50%, -50%);
     width: 20.5vw;
+    max-width: 256.3px;
     height: 10vw;
+    max-height: 125px;
     position: relative;
     overflow: hidden;
 }
@@ -163,6 +226,10 @@
     transform: rotate(-4deg);
 }
 
+.max-toon.sideburns::before, .max-toon.sideburns::after {
+    border-width: 25px 25px 100px;
+}
+
 .sideburns::after {
     left: auto;
     right: 0;
@@ -173,7 +240,9 @@
 
 .beard {
     width: 11vw;
+    max-width: 137.5px;
     height: 10vw;
+    max-height: 125px;
     /* background-color: #e8c5ae; */
     background-color: #eecbb4;
     left: 50%;
@@ -183,12 +252,18 @@
     overflow: hidden;
 }
 
+.max-toon.beard {
+    transform: translate(-50%, 31.3px);
+}
+
 .mole {
     top: 10%;
     left: 73%;
     background-color: #a86e4c;
     width: 0.5vw;
+    max-width: 6.3px;
     height: 0.5vw;
+    max-height: 6.3px;
     border-radius: 100%;
 }
 
@@ -198,7 +273,9 @@
     top: 45%;
     transform: translate(-50%, -40%);
     width: 9vw;
+    max-width: 112.5px;
     height: 5vw;
+    max-height: 62.5px;
     background-color: #7d3126;
     border-radius: 2vw 2vw 5vw 5vw;
     overflow: hidden;
@@ -208,7 +285,9 @@
 .mouth .tongue {
     background-color: #d96269;
     width: 15vw;
+    max-width: 187.5px;
     height: 5vw;
+    max-height: 62.5px;
     border-radius: 50%;
     left: 50%;
     top: 50%;
@@ -219,7 +298,9 @@
 .mouth .teeth {
     background-color: #fff;
     width: 6vw;
+    max-width: 75px;
     height: 2.5vw;
+    max-height: 31.3px;
     left: 50%;
     top: -30%;
     border-radius: 2.5vw;
@@ -229,7 +310,9 @@
 
 .eyes {
     width: 17vw;
+    max-width: 212.5px;
     height: 7vw;
+    max-height: 87.5px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -40%);
@@ -241,13 +324,15 @@
     height: 90%;
     left: 2.5%;
     border-radius: 3.5vw;
-    border: 0.2vw solid black;
+    border: 1.5px solid black;
 }
 
 .eyes .eye .brow {
     top: -3vw;
     width: 5.5vw;
+    max-width: 68.8px;
     height: 2vw;
+    max-height: 25px;
     background-color: #875e33;
     transform: rotate(-8deg);
     border: 1px solid black;
@@ -260,7 +345,9 @@
     transform: translate(-50%, -50%);
     background-color: #000;
     width: 2.5vw;
+    max-width: 32px;
     height: 2.5vw;
+    max-height: 32px;
     border-radius: 50%;
 }
 
@@ -287,7 +374,9 @@
     transform: translate(-50%, 100%);
     background-color: #dfa59b;
     width: 4.5vw;
+    max-width: 56.3px;
     height: 4.5vw;
+    max-height: 56.3px;
     border-radius: 5vw;
 }
 
@@ -298,18 +387,27 @@
     border-bottom-color: #dfa59b;
     border-width: 0 1.5vw 5vw 1.5vw;
     width: 1.5vw;
+    max-width: 18px;
     height: 0;
     border-style: solid;
-    top: -2.5vw;
+    /* top: -2.5vw; */
+    top: -75%;
+}
+
+.nose.max-toon::before {
+    border-width: 0 18.8px 62.5px 18.8px;
 }
 
 .nose::after {
     position: absolute;
     background-color: #dfa59b;
     content: " ";
-    width: 1.5vw;
+    width: 1.6vw;
+    max-width: 19px;
     height: 1vw;
-    top: -2.3vw;
+    max-height: 12.5px;
+    /* top: -2.3vw; */
+    top: -85%;
     border-radius: 50% 50% 0 0;
     left: 50%;
     transform: translateX(-50%);
@@ -320,9 +418,15 @@
     top: -2vw;
     transform: translateX(-50%);
     width: 16.5vw;
+    max-width: 206.3px;
     height: 6.5vw;
+    max-height: 81.3px;
     border-radius: 85% 85% 10% 10%;
     background-color: #4a2b0a;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
+}
+
+.quiff.max-toon {
+    top: -25px;
 }
