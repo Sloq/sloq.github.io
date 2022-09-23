@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
-import layoutReducer from '../features/layout/layoutSlice';
+import mediaReducer from '../navbar/mediaReducer';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    layout: layoutReducer,
+    mobile: mediaReducer,
   },
 });
