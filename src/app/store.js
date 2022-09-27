@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
-import mediaReducer from '../navbar/mediaReducer';
+import mobile from '../navbar/mediaReducer';
 
-export const store = configureStore({
+const reducer = configureStore({
   reducer: {
     counter: counterReducer,
-    mobile: mediaReducer,
+    mobile,
   },
 });
+
+export default reducer;

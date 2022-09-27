@@ -1,15 +1,10 @@
 import { connect } from 'react-redux';
-// import { booksArray } from '../../reducers/selectors';
-import navbarFull from './navbarFull';
+import navbar from './navbar';
 import { setMobileState } from './mediaActions';
 
-const mapStateToProps = state => ({
-  state
+const mapStateToProps = ({mobile}) => ({
+  mobile: mobile.mobile
 });
-
-// const mapStateToProps = ({mobile}) => ({
-//   mobile
-// });
 
 const mapDispatchToProps = dispatch => ({
   setMobileState: (mobile) => dispatch(setMobileState(mobile))
@@ -18,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(navbarFull);
+)(navbar);

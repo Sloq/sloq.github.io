@@ -1,9 +1,17 @@
 import React from 'react';
+import doc from '../StephenLoquet_Resume.pdf'
 
-function Home() {
+function Resume() {
+    console.log("resume")
     return (
-        <h1>this is the Resume</h1>
+        <div>
+            <a href={doc} download="StephenLoquet_Resume">Download My Resume</a>
+            <object data={doc} type="application/pdf" width="100%" height="800">
+                {/* <p>Alternative text - include a link <a href="http://sample.pdf">to the PDF!</a></p> */}
+            </object>
+
+        </div>
     );
 }
 
-export default Home;
+export default Resume;

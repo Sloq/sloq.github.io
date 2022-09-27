@@ -24,7 +24,6 @@ class Navbar extends React.Component {
         top: '25px',
       },
       open: false,
-      // mobile: false,
     }
     this.homeRef = React.createRef();
     this.resumeRef = React.createRef();
@@ -33,14 +32,12 @@ class Navbar extends React.Component {
     this.gitHubRef = React.createRef();
     this.adjustNavline = this.adjustNavline.bind(this);
     this.mobileCheck = this.mobileCheck.bind(this);
+    this.mobileMenu = this.mobileMenu.bind(this);
   }
 
   componentDidMount() {
     const mobile = this.mobileCheck();
-    // this.setState({mobile})
-    console.log(this.props)
-    // this.props.setMobileState(mobile);
-    //dispatch action to set mobile in global state
+    this.props.setMobileState(mobile);
   }
 
   mobileCheck() {
@@ -66,10 +63,20 @@ class Navbar extends React.Component {
     });
   }
 
+  mobileMenu() {
+    return (
+      <div>Helloooooooooo</div>
+    )
+  }
+
 
   render() {
-    // console.log(this.state.mobile)
-    console.log(this.props)
+    const mobile = this.props.mobile;
+    if (mobile) {
+      return (this.mobileMenu())
+      // return (<Hamburger />)
+    }
+
     return (
       <nav className={styles.nav}>
         <ul className={styles.navbar} ref={this.navPosRef}>
@@ -82,34 +89,24 @@ class Navbar extends React.Component {
               Home
             </Link>
           </li>
-          <li ref={this.resumeRef}>
-            <Link
-              to="/resume"
-              
-              onMouseEnter={() => {this.adjustNavline(1, this.resumeRef)}}
-              className={this.state.linkIdxActive[1] ? styles.hoverActive : styles.hoverInactive}
-              >
-              Resume
-            </Link>
-          </li>
           <li ref={this.altRef}>
             <HashLink
               to="/#projects"
               
               onMouseEnter={() => {this.adjustNavline(2, this.altRef)}}
-              className={this.state.linkIdxActive[2] ? styles.hoverActive : styles.hoverInactive}
+              className={this.state.linkIdxActive[1] ? styles.hoverActive : styles.hoverInactive}
               >
               Projects
             </HashLink>
           </li>
-          <li ref={this.altRef}>
+          <li ref={this.resumeRef}>
             <Link
-              to="/altpage"
+              to="/resume"
               
-              onMouseEnter={() => {this.adjustNavline(2, this.altRef)}}
+              onMouseEnter={() => {this.adjustNavline(1, this.resumeRef)}}
               className={this.state.linkIdxActive[2] ? styles.hoverActive : styles.hoverInactive}
               >
-              Altpage
+              Resume
             </Link>
           </li>
           <li ref={this.linkedInRef}>
