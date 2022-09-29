@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import "./home.css";
 import { calculateBrow, calculateLeftPupil, calculateRightPupil, calculatePupilHeight } from "./homeComponents/faceFunctions";
 // import AboutMe from './homeComponents/aboutMe';
@@ -79,8 +80,10 @@ class Home extends React.Component {
     // extracted to simplify legibility of render while still have
     // data access for pupil/brow movement
     faceToon(maxToon) {
+        const mobile = this.props.mobile;
+        const mobileFlag = mobile ? 'mobile' : 'desktop';
         return (
-            <div className="face-image lozenge">
+            <div className={`face-image lozenge ${mobileFlag}`}>
                         <div className="head"
                             ref={this.headRef}
                         >
@@ -136,19 +139,20 @@ class Home extends React.Component {
     
     render() {
         const maxToon = this.state.width > 1200 ? 'max-toon' : '';
+        const mobile = this.props.mobile;
+        const mobileFlag = mobile ? 'mobile' : 'desktop';
 
         return (
             //need to check size for clasname of body to assign padding for navbar
-            <div className="home" onMouseMove={(e) => {this.setCoordinates(e, this.headRef)}}>
-                <div className='face-container'>
-                    {/* <AboutMe/> */}
+            <div className={`home ${mobileFlag}`} onMouseMove={(e) => {this.setCoordinates(e, this.headRef)}}>
+                <div className={`face-container ${mobileFlag}`}>
                     <h1 className='intoH'>Hi, I'm Stephen Loquet</h1>
                     <h2 className='subHeader'>Software Developer</h2>
                     <div className='face-image'></div>
                     {this.faceToon(maxToon)}
                     <p> As a web developer, I consistently strive to create clean, concise, reusable code.
                         Professional experience building front end web apps with ReactJS/Redux and working on
-                        Backend api's utilizing Golang. Working in Software Engineer has always been rewarding
+                        Backend api's utilizing Golang and PHP. Working in Software Engineer has always been rewarding
                         for me, and I'm excited to help your company to tackle its latest challenges. 
                     </p>
                 </div>
@@ -160,4 +164,8 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+const mapStateToProps = ({mobile}) => ({
+    mobile: mobile.mobile
+});
+  
+export default connect(mapStateToProps)(Home);

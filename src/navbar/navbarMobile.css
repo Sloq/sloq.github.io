@@ -1,0 +1,104 @@
+
+.navbarMobile {
+    display: flex;
+    list-style: none;
+    flex-direction: column ;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+}
+
+ul.navbarMobile {
+    padding-inline-start: 0px;
+}
+
+.topnav {
+    overflow: hidden;
+    position: relative;
+}
+
+.menuToggle {
+    display: block;
+    position: relative;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.topbarMobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+  
+.menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background-color: black;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                /* background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), */
+                opacity 0.55s ease;
+}
+
+.menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+
+.menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+.menuToggle.active span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.menuToggle.active span:nth-last-child(1) {
+    opacity: 1;
+    transform: rotate(-45deg) translate(-2px, -1px);
+    /* background: #232323; */
+}
+
+.menuToggle.active span:nth-last-child(2) {
+    transform: rotate(45deg) translate(-8px, -9px);
+}
+
+.menuToggle.active span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.navbarMobile > li {
+    border-bottom: 1px solid rgb(160, 167, 176);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1.1em;
+    font-size: 1.1em;
+}
+
+.navbarMobile > li:first-child {
+    border-top: 1px solid rgb(160, 167, 176);
+}
+
+.navbarMobile.inactive {
+    display: none;
+}
+  
+.linkedIn {
+    height: 25px;
+    filter: grayscale(100%) brightness(0);
+    margin-right: -5px;
+}
+
+.gitHub {
+    height: 32px;
+    margin-left: -5px;
+}

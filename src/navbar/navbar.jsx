@@ -5,6 +5,7 @@ import { HashLink } from 'react-router-hash-link';
 import styles from './navbar.module.css';
 import linkedIn from '../linkedIn.png'
 import gitHub from '../gitHub.png'
+import NavbarMobile from "./navbarMobile";
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -32,7 +33,6 @@ class Navbar extends React.Component {
     this.gitHubRef = React.createRef();
     this.adjustNavline = this.adjustNavline.bind(this);
     this.mobileCheck = this.mobileCheck.bind(this);
-    this.mobileMenu = this.mobileMenu.bind(this);
   }
 
   componentDidMount() {
@@ -63,18 +63,10 @@ class Navbar extends React.Component {
     });
   }
 
-  mobileMenu() {
-    return (
-      <div>Helloooooooooo</div>
-    )
-  }
-
-
   render() {
     const mobile = this.props.mobile;
     if (mobile) {
-      return (this.mobileMenu())
-      // return (<Hamburger />)
+      return <NavbarMobile />
     }
 
     return (
