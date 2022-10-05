@@ -25,28 +25,29 @@
     color: #474849;
 }
 
-.projects-container {
-
-}
-
-.face-container {
+.face-container-desktop {
     width: 100%;
     min-width: 150px;
     min-height: 150px;
-    /* margin-left: 55%; */
 }
 
 .face-container.mobile {
+    width: 100%;
+    min-width: 150px;
+    min-height: 150px;
     margin-left: 0px;
     margin-right: 0px;
 }
 
-.face-container.desktop > p {
+.face-container-desktop > p {
     padding-left: 0px;
     padding-right: 0px;
+    margin-right: 43vw;
+    margin-left: 5vw;
+    font-size: 1.4em;
 }
 
-.face-container.desktop > h1 {
+.face-container-desktop > h1 {
     padding-left: 0px;
     padding-right: 0px;
 }
@@ -56,7 +57,17 @@
     padding-right: 0px;
 }
 
-.face-container.mobile > p, h1, h2 {
+.face-container.mobile > h1 {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.face-container.mobile > p {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.face-container.mobile > h2 {
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -80,7 +91,7 @@
 
 .lozenge {
     margin-left: 57vw;
-    margin-top: -8vw; 
+    margin-top: -325px;
     z-index: -1;
 }
 
@@ -94,12 +105,29 @@
 
 /* add max toon to lozenge */
 
-.face-image:before {
+.face-image.mobile:before {
     content: '' ;
     display:block;
     float: right;
     height: 40vw;
     width: 40vw;
+}
+
+
+.leftHomeIntro {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10vw;
+}
+
+.leftHomeIntro > * {
+    margin-left: 10vw;
+    padding-right: 0px;
+    margin-right: 43vw;
+}
+
+.leftHomeIntro > p {
+    font-size: 1.4em;
 }
 
 .lozenge {
@@ -109,7 +137,7 @@
     max-height: 500px;
     border-style: solid;
     border-color: #fff;
-    border-width: 2vw;
+    border-width: min( 2vw, 25px);
     border-radius: 50%;
     overflow: hidden;
     background-color: #88c7e4;

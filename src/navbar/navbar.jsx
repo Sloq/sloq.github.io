@@ -71,6 +71,11 @@ class Navbar extends React.Component {
 
     return (
       <nav className={styles.nav}>
+        <div className={styles.nameLink}>
+          <Link to="/">
+            Stephen Loquet
+          </Link>
+        </div>
         <ul className={styles.navbar} ref={this.navPosRef}>
           <li ref={this.homeRef} >
             <Link

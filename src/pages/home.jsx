@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import "./home.css";
+import Projects from './projects';
 import { calculateBrow, calculateLeftPupil, calculateRightPupil, calculatePupilHeight } from "./homeComponents/faceFunctions";
 // import AboutMe from './homeComponents/aboutMe';
 
@@ -34,6 +35,7 @@ class Home extends React.Component {
       this.headRef = React.createRef();
       this.setCoordinates = this.setCoordinates.bind(this);
       this.faceToon = this.faceToon.bind(this);
+      this.aspectShuffle = this.aspectShuffle.bind(this);
       this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     }
 
@@ -44,7 +46,8 @@ class Home extends React.Component {
 
     setCoordinates(e, rHead) {
         const xVal = e.pageX - e.target.offsetLeft;
-        let yVal = e.pageY - e.target.offsetTop;
+        // let yVal = e.pageY - e.target.offsetTop;
+        let yVal = e.pageY;
         const headRec = rHead.current.getBoundingClientRect();
 
         const leftEdge = headRec.left;
@@ -136,19 +139,17 @@ class Home extends React.Component {
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
     }
-    
-    render() {
+
+    aspectShuffle() {
         const maxToon = this.state.width > 1200 ? 'max-toon' : '';
         const mobile = this.props.mobile;
         const mobileFlag = mobile ? 'mobile' : 'desktop';
-
-        return (
-            //need to check size for clasname of body to assign padding for navbar
-            <div className={`home ${mobileFlag}`} onMouseMove={(e) => {this.setCoordinates(e, this.headRef)}}>
+        if (mobile) {
+            return (
                 <div className={`face-container ${mobileFlag}`}>
-                    <h1 className='intoH'>Hi, I'm Stephen Loquet</h1>
+                    <h1 className='intoH'>Hi, I'm Stephen</h1>
                     <h2 className='subHeader'>Software Developer</h2>
-                    <div className='face-image'></div>
+                    <div className={`face-image ${mobileFlag}`}></div>
                     {this.faceToon(maxToon)}
                     <p> As a web developer, I consistently strive to create clean, concise, reusable code.
                         Professional experience building front end web apps with ReactJS/Redux and working on
@@ -156,8 +157,35 @@ class Home extends React.Component {
                         for me, and I'm excited to help your company to tackle its latest challenges. 
                     </p>
                 </div>
+            )
+        };
+
+        return (
+            <div className={`face-container-desktop`}>
+                <div className="leftHomeIntro">
+                    <h1 className='intoH'>Hi, I'm Stephen</h1>
+                    <h2 className='subHeader'>Software Developer</h2>
+                    <p> As a web developer, I consistently strive to create clean, concise, reusable code.
+                        Professional experience building front end web apps with ReactJS/Redux and working on
+                        Backend api's utilizing Golang and PHP. Working in Software Engineer has always been rewarding
+                        for me, and I'm excited to help your company to tackle its latest challenges. 
+                    </p>
+                </div>
+                {this.faceToon(maxToon)}
+            </div>
+        )
+    }
+    
+    render() {
+        const mobile = this.props.mobile;
+        const mobileFlag = mobile ? 'mobile' : 'desktop';
+
+        return (
+            //need to check size for clasname of body to assign padding for navbar
+            <div className={`home ${mobileFlag}`} onMouseMove={(e) => {this.setCoordinates(e, this.headRef)}}>
+                {this.aspectShuffle()}
                 <div id='projects' className='projects-container'>
-                    Projects
+                    <Projects />
                 </div>
             </div>
         );

@@ -5,6 +5,18 @@
     top: 0px;
     background-color: #fafafa;
     border-bottom: solid rgb(160, 167, 176) 1px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nameLink {
+    display: flex;
+    align-items: center;
+}
+
+.nameLink > * {
+    font-size: 2.5em;
+    padding-left: 10px;
 }
 
 .navbar {
