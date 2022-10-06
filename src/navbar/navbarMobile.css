@@ -75,6 +75,12 @@ ul.navbarMobile {
     transform: rotate(0deg) scale(0.2, 0.2);
 }
 
+.topbarMobile > a {
+    font-size: 1.5em;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
 .navbarMobile > li {
     border-bottom: 1px solid rgb(160, 167, 176);
     width: 100%;

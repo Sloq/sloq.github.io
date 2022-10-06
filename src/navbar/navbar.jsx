@@ -89,7 +89,7 @@ class Navbar extends React.Component {
           <li ref={this.altRef}>
             <HashLink
               to="/#projects"
-              
+              smooth
               onMouseEnter={() => {this.adjustNavline(2, this.altRef)}}
               className={this.state.linkIdxActive[1] ? styles.hoverActive : styles.hoverInactive}
               >

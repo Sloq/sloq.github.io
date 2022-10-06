@@ -23,11 +23,10 @@ root.render(
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="resume" element={<Resume />} />
-            <Route path="hanoi" element={<Hanoi />} />
+            {/* <Route path="hanoi" element={<Hanoi />} /> */}
             <Route path="altpage" element={
               <App />
             }/>
-            {/* <Route path="*" element={<Home />} /> */}
           </Route>
       </Routes>
     </Provider>
