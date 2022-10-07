@@ -1,7 +1,7 @@
 {
   "name": "personal-site",
   "version": "0.1.0",
-  "homepage": "https://sloq.github.io",
+  "homepage": "https://Sloq.github.io",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.2",
