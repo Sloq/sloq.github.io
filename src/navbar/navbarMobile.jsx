@@ -26,6 +26,7 @@ class NavbarMobile extends React.Component {
         <div className="topnav">
             <div className='topbarMobile'>
                 <Link
+                    className="navLinkMobile"
                     to="/"
                 >
                     Stephen Loquet
@@ -39,14 +40,16 @@ class NavbarMobile extends React.Component {
             <ul className={`navbarMobile ${active}`} ref={this.navPosRef}>
                 <li ref={this.homeRef} onClick={this.triggerNav}>
                     <Link
-                    to="/"
-                    >
-                    Home
+                        to="/"
+                        className="navLinkMobile"
+                        >
+                        Home
                     </Link>
                 </li>
                 <li ref={this.altRef} onClick={this.triggerNav}>
                     <HashLink
                     to="/#projects"
+                    className="navLinkMobile"
                     >
                     Projects
                     </HashLink>
@@ -54,12 +57,14 @@ class NavbarMobile extends React.Component {
                 <li ref={this.resumeRef} onClick={this.triggerNav}>
                     <Link
                     to="/resume"
+                    className="navLinkMobile"
                     >
                     Resume
                     </Link>
                 </li>
                 <li ref={this.linkedInRef} onClick={this.triggerNav}>
                     <a
+                    className="navLinkMobile"
                     href="https://linkedin.com/in/stephen-loquet"
                     // target="_blank" rel="noreferrer"
                     >
@@ -71,6 +76,7 @@ class NavbarMobile extends React.Component {
                 </li>
                 <li ref={this.gitHubRef} onClick={this.triggerNav}>
                     <a
+                    className="navLinkMobile"
                     href="https://github.com/sloq"
                     >
                     <img
